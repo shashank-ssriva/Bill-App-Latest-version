@@ -201,7 +201,7 @@ $pdf->SetX(11);
 
 $pdf->SetFont('Times','B',10);
 $pdf->SetTextColor(0,0,0);
-$pdf->Cell(0, 4, "Employee Name (ID): ",0,0, 'L');
+$pdf->Cell(0, 4, "Employee Name(ID): ",0,0, 'L');
 
 $pdf->SetX(43);
 $pdf->SetTextColor(0,0,255);
@@ -418,11 +418,14 @@ $pdf->SetFont('Arial','B',10);
 
 $pdf->Cell(0,6,"TOTAL = ". $total, 0,0,'C');
 $pdf->SetFont('Times','B',10);
-
+$pdf->SetY(270);
+$pdf->SetX(5);
+//$pdf->setFont('Times', 'I', 8);
+$pdf->Cell(50,6,'['.$manager.']',0,0,'C');
 $pdf->SetY(270);
 $pdf->SetX(140);
 //$pdf->setFont('Times', 'I', 8);
 $pdf->Cell(50,6,'['.$name.']',0,0,'C');
 
-$pdf->Output($name.'_cabBill('.$pmtdt.').pdf','D');
+$pdf->Output($name.'-'.$pmtdt.'_Expense Claim-Cab Charges.pdf','D');
 ?>
