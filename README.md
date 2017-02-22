@@ -10,6 +10,7 @@ Since ExClaiMadEasy is a PHP application, it can be self-hosted using any of you
 If you are planning to self-host this application, just unpack the contents of this repository to your ``DocumentRoot`` & you're good to go. You will also need to create a MySQL database & an appropriate database user. You will need to change the code accordingly. So, first of all create a database called ``cabBills`` by issuing ``CREATE DATABASE cabBills;``. Then return to your command prompt (Windows) or CLI (Linux) and execute these SQL scripts ``gentables.sql`` & ``gen_google_authentication_table.sql`` (already packaged with this project). General syntax is as follows:-
 ```
 mysql -h hostname -u username cabBills < /path/to/gentables.sql
+mysql -h hostname -u username cabBills < /path/to/gen_google_authentication_table.sql
 ```
 This will create the tables in database where data will be written to (this also acts as means to hold historical data for retrieval).
 
