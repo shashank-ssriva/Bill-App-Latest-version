@@ -176,7 +176,7 @@
 						<label for="manager">Manager : </label>
 						<input id="mname" type="text" placeholder="Enter Manager's Name" name="mname">
 						<span class="pure-form-message">This is a required field.</span>
-						
+
 						<div>
 						<style scoped>
 
@@ -206,9 +206,9 @@
 						}
 
 						</style>
-						<input type="button" class="button-success pure-button" value="Next" onClick="validate()">
+						<input type="button" class="pure-button pure-button-primary" value="Next" onClick="validate()">
 						<input type="reset" class="button-warning pure-button" value="Cancel">
-						<input type="button" class="pure-button pure-button-primary" value="See History" onclick="location.href='billHistory.php';"">
+						<input type="button" class="button-success pure-button" value="See History" onclick="location.href='billHistory.php';"">
 </div>
 					</fieldset>
 				</form>
