@@ -17,13 +17,13 @@
   $feedback = $_POST['feedback'];
 
   $to = 'shashanksrivastava@xebia.com';
-  $subject = 'ExClaiMadeEasy - Feedback from ' .$name;
+  $subject = 'ExClaiMadeEasy - Feedback from ' .$name . '-' .$email;
   $msg = "$name has submitted below feedback for your Application. Please review it. \n" .
     "Feedback = $feedback";
   mail($to, $subject, $msg, 'From:' . $email);
 
   echo 'Hi ' . $name. ', Thanks for submitting your feedback. Developers will try to work on it after reviewing.<br />';
-  echo 'Your email address is ' . $email . '<br />' ;
+  echo 'Your email address is: ' . "<i>" . $email . "</i>". '<br />' ;
   echo 'Here is what you have submitted: ' . "<b>" . $feedback . "</b>". '<br />';
 ?>
 <div>
