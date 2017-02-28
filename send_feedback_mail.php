@@ -11,22 +11,53 @@
 
   <h2>Bill Claims Management Application</h2>
   <h3><legend>Your Feedback</legend></h3>
-</fieldset>
 <?php
   $name = $_POST['name'];
   $email = $_POST['email'];
   $feedback = $_POST['feedback'];
 
   $to = 'shashanksrivastava@xebia.com';
-  $subject = 'ExClaiMadeEasy - Feedback Form';
+  $subject = 'ExClaiMadeEasy - Feedback from ' .$name;
   $msg = "$name has submitted below feedback for your Application. Please review it. \n" .
     "Feedback = $feedback";
   mail($to, $subject, $msg, 'From:' . $email);
 
-  echo 'Hi ' . $name. ', Thanks for submitting the feedback.<br />';
+  echo 'Hi ' . $name. ', Thanks for submitting your feedback. Developers will try to work on it after reviewing.<br />';
   echo 'Your email address is ' . $email . '<br />' ;
-  echo 'Here is what you have submitted: ' . $feedback . '<br />';
+  echo 'Here is what you have submitted: ' . "<b>" . $feedback . "</b>". '<br />';
 ?>
+<div>
+<style scoped>
 
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+  background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+  background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+  background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+  background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+</style>
+<br>
+<input type="submit" class="pure-button pure-button-primary" value="Back" onclick="location.href='home.php';"">
+</div>
+</fieldset>
 </body>
 </html>
