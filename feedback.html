@@ -1,0 +1,44 @@
+<html>
+<head>
+     <title>ExClaiMadEasy - Feedback Form</title>
+     <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css">
+     <script language="javascript">
+     function validate(){
+          if (isEmpty(document.myForm.name)){
+               alert("Employee Name : Incomplete field value");
+               document.myForm.name.focus();
+          }
+          else if (isEmpty(document.myForm.email)){
+               alert("Email Address : Mandatory Field");
+               document.myForm.email.focus();
+          }
+     }
+     </script>
+</head>
+<body>
+     <form class="pure-form pure-form-stacked" method="post" action="send_feedback_mail.php">
+          <fieldset>
+               <center>
+                    <h2>Bill Claims Management Application</h2>
+                    <h3><legend>Developed by Monika Gautam & Shashank Srivastava</legend></h3>
+
+
+                    <label for="name">Employee Name : </label>
+                    <input id="name" type="text" placeholder="Enter your Name" name="name" autofocus>
+                    <span class="pure-form-message">This is a required field.</span>
+                    <label for="email">Email Address : </label>
+                    <input id="email" type="email" placeholder="Enter Email Address" name="email">
+                    <span class="pure-form-message">This is a required field.</span>
+                    <label for="feedback">Your Feedback : </label>
+                    <textarea class="pure-input-1-2" id="feedback" placeholder="Your feedback here.." name="feedback"></textarea>
+                    <span class="pure-form-message">This is a required field.</span>
+                    <br>
+                    <button type="submit" class="pure-button pure-button-primary">Submit</button>
+                    <!--<input type="button" class="pure-button pure-button-primary" value="Submit" onClick="validate()">-->
+                    <input type="reset" class="pure-button pure-button-primary" value="Back" onclick="location.href='home.php'">
+
+               </fieldset>
+          </form>
+
+     </body>
+     </html>

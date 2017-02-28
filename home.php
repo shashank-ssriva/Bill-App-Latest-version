@@ -38,8 +38,10 @@
 			dateFormat:"%Y/%m/%d"
 		});
 	}
+
 	function checkDt(thefield){
 		//alert("checking date");
+
 		var dt=thefield.value;
 		d=dt.substring(8,10);
 		m=dt.substring(5,7);
@@ -51,25 +53,31 @@
 		{
 			//  alert("sep");
 			return false;
+
 		}
 		else if(d<1 || d>31 || m<1 || m>12|| y<1950 || y>2017)
 		{
 			return false;
+
 		}
 		else if((m==4 || m==6 || m==9 || m==11) && d>30)
 		{
 			return false;
+
 		}
 		else if(m==2)
 		{
+
 			if(y%4==0 && !(y%400!=0  && y%100==100) )
 			{
 				if(d>29)
 				return false;
 			}
 			else if(d>28)
+
 			return false;
 		}
+
 		return true;
 	}
 	function isId(thefield)
@@ -105,24 +113,32 @@
 			alert("  Manager: Empty field");
 			document.myForm.mname.focus();
 		}
+
 		else if (!isAlpha(document.myForm.mname)){
 			alert("Name: Non-alphabetic");
 			document.myForm.mname.focus();
 		}
 		else if(isEmpty(document.myForm.dateval))
 		{
+
 			alert("Date Field can't be left empty");
 			document.myForm.dateval.focus();
 		}
 		else if(!checkDt(document.myForm.dateval))
 		{
+
 			alert("Date  :  Invalid ");
 			document.myForm.dateval.focus();
 		}
+
+
 		else
 		{
 			document.myForm.action="feedData.php";
 			document.myForm.submit();
+
+
+
 		}
 	}
 	</script>
@@ -136,7 +152,9 @@
 		<center>
 			<h2>Bill Claims Management Application</h2>
 			<h3><legend>Developed by Monika Gautam & Shashank Srivastava</legend></h3>
+
 			<label for="nature">Expenses Nature:</label>
+
 			<select name="exp">
 				<option selected value="Weekly">Weekly
 					<option value="15 days"> 15 days
@@ -145,22 +163,56 @@
 						<label for="dateval">Bill Submission Date: </label>
 						<input id="dateval" type="text" placeholder="Choose Date" name="dateval" onClick="f()">
 						<span class="pure-form-message">This is a required field.</span>
+
 						<label for="id">Employee ID : </label>
 						<input id="id" type="email" name="id" value="XI" autofocus>
 						<span class="pure-form-message">This is a required field.</span>
 						<label for="name">Employee Name : </label>
-						<input id="name" type="text" placeholder="Enter your Name"name="name">
+						<input id="name" type="text" placeholder="Enter your Name" name="name">
 						<span class="pure-form-message">This is a required field.</span>
 						<label for="acc">Bank Account Number : </label>
 						<input id="acc" type="text" placeholder="Enter Bank Account Number" name="acc">
+
 						<label for="manager">Manager : </label>
 						<input id="mname" type="text" placeholder="Enter Manager's Name" name="mname">
 						<span class="pure-form-message">This is a required field.</span>
-						<br>
-						<input type="button" class="pure-button pure-button-primary" value="Next" onClick="validate()">
-						<input type="reset" class="pure-button pure-button-primary" value="Cancel">
+						
+						<div>
+						<style scoped>
+
+						.button-success,
+						.button-error,
+						.button-warning,
+						.button-secondary {
+							color: white;
+							border-radius: 4px;
+							text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+						}
+
+						.button-success {
+							background: rgb(28, 184, 65); /* this is a green */
+						}
+
+						.button-error {
+							background: rgb(202, 60, 60); /* this is a maroon */
+						}
+
+						.button-warning {
+							background: rgb(223, 117, 20); /* this is an orange */
+						}
+
+						.button-secondary {
+							background: rgb(66, 184, 221); /* this is a light blue */
+						}
+
+						</style>
+						<input type="button" class="button-success pure-button" value="Next" onClick="validate()">
+						<input type="reset" class="button-warning pure-button" value="Cancel">
 						<input type="button" class="pure-button pure-button-primary" value="See History" onclick="location.href='billHistory.php';"">
+</div>
 					</fieldset>
 				</form>
+
+
 			</body>
 			</html>
