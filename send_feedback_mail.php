@@ -20,11 +20,15 @@
   $subject = 'ExClaiMadeEasy - Feedback from ' .$name . '-' .$email;
   $msg = "$name has submitted below feedback for your Application. Please review it. \n" .
     "Feedback = $feedback";
-  mail($to, $subject, $msg, 'From:' . $email);
-
-  echo 'Hi ' . $name. ', Thanks for submitting your feedback. Developers will try to work on it after reviewing.<br />';
-  echo 'Your email address is: ' . "<i>" . $email . "</i>". '<br />' ;
-  echo 'Here is what you have submitted: ' . "<b>" . $feedback . "</b>". '<br />';
+  if((!empty($name)) && (!empty($email)) && (!empty($feedback))){
+        mail($to, $subject, $msg, 'From:' . $email);
+        echo 'Hi ' . $name. ', Thanks for submitting your feedback. Developers will try to work on it after reviewing.<br />';
+        echo 'Your email address is: ' . "<i>" . $email . "</i>". '<br />' ;
+        echo 'Here is what you have submitted: ' . "<b>" . $feedback . "</b>". '<br />';
+  }
+  else {
+    echo "Please fill in all the required fields. P.S : - I am not good at client-side validation :-D";
+  }
 ?>
 <div>
 <style scoped>
@@ -56,7 +60,7 @@
 
 </style>
 <br>
-<input type="submit" class="pure-button pure-button-primary" value="Back" onclick="location.href='home.php';"">
+<input type="submit" class="pure-button pure-button-primary" value="Back" onclick="location.href='feedback.html';"">
 </div>
 </fieldset>
 </body>
