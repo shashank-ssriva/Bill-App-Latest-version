@@ -2,27 +2,36 @@
 ob_start();
 session_start();
 require_once 'config.php';
+
 //initalize user class
 $user_obj = new Cl_User();
+
+
 /*******Google ******/
 require_once 'Google/src/config.php';
 require_once 'Google/src/Google_Client.php';
 require_once 'Google/src/contrib/Google_PlusService.php';
 require_once 'Google/src/contrib/Google_Oauth2Service.php';
+
+
 $client = new Google_Client();
 $client->setScopes(array('https://www.googleapis.com/auth/plus.login','https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/plus.me'));
 $client->setApprovalPrompt('auto');
+
 $plus       = new Google_PlusService($client);
 $oauth2     = new Google_Oauth2Service($client);
 //unset($_SESSION['access_token']);
+
 if(isset($_GET['code'])) {
 	$client->authenticate(); // Authenticate
 	$_SESSION['access_token'] = $client->getAccessToken(); // get the access token here
 	header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
 }
+
 if(isset($_SESSION['access_token'])) {
 	$client->setAccessToken($_SESSION['access_token']);
 }
+
 if ($client->getAccessToken()) {
 	$_SESSION['access_token'] = $client->getAccessToken();
 	$user         = $oauth2->userinfo->get();
@@ -37,6 +46,7 @@ if ($client->getAccessToken()) {
 <?php
 if( !empty( $_POST )){
 	try {
+
 		$data = $user_obj->login( $_POST );
 		if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
 			header('Location: home.php');
@@ -57,7 +67,6 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Bill Claims Management Application</title>
-	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 	<!-- Bootstrap -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/font-awesome.min.css" rel="stylesheet">
@@ -87,15 +96,20 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
 				<input name="email" id="email" type="email" class="form-control" placeholder="Email address" autofocus>
 				<input name="password" id="password" type="password" class="form-control" placeholder="Password">
 				<button class="btn btn-block bt-login" type="submit">Sign-in</button>
+
 				<h4 class="text-center login-txt-center">Alternatively, you can log-in using:</h4>
+
 				<a class="btn btn-default google" href="<?php echo $client->createAuthUrl();?>"> <i class="fa fa-google-plus modal-icons"></i> Sign In with Google+ </a>
+
 			</form>
 			<div class="form-footer">
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6">
 						<i class="fa fa-lock"></i>
 						<a href="forget_password.php"> Forgot password? </a>
+
 					</div>
+
 					<div class="col-xs-6 col-sm-6 col-md-6">
 						<i class="fa fa-check"></i>
 						<a href="register.php"> Sign Up </a>
