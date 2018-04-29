@@ -1,12 +1,12 @@
-#ExClaiMadEasy
+# ExClaiMadEasy
 
-##Introduction
+## Introduction
 **ExClaiMadEasy** (stands for *Expense Claims Made Easy*) is an extremely light-weight MySQL backed Web-app written in PHP for making submission of your Cab Expense Claims a breeze. All you need is to choose date(s) & enter bill amount in its soothing, beautiful UI. ExClaiMadEasy will automatically generate a PDF document with the tables of your entries that you can print out, sign & submit to your office department for reimbursements. No more struggling with Excel sheets :-)
 
-##Requirements
+## Requirements
 Since ExClaiMadEasy is a PHP application, it can be self-hosted using any of your favorite webservers like Apache or Nginx. Its very light & uses very little resources. You can also host it on any cloud platform. I have already hosted it on OpenShift & the application is available at https://exclaimadeasy-monika.rhcloud.com/ to have a glimpse of what it can do :-)
 
-##Installation
+## Installation
 If you are planning to self-host this application, just unpack the contents of this repository to your ``DocumentRoot`` & you're good to go. You will also need to create a MySQL database & an appropriate database user. You will need to change the code accordingly. So, first of all create a database called ``cabBills`` by issuing ``CREATE DATABASE cabBills;``. Then return to your command prompt (Windows) or CLI (Linux) and execute this SQL script ``gentables.sql`` (already packaged with this project). General syntax is as follows:-
 ```
 mysql -h hostname -u username cabBills < /path/to/gentables.sql
@@ -28,7 +28,7 @@ This will install FPDF correctly. In case no PDF is generated, look for PHP logs
 ```
 So, you get the idea what's wrong. Make sure you enter correct location in those scripts as told above or install it correctly.
 
-##Acknowledgements
+## Acknowledgements
 ExClaiMadEasy is a fork of [Bill-App-Latest-version] (https://github.com/monika-gautam/Bill-App-Latest-version) developed by [Monika Gautam] (https://github.com/monika-gautam). I have collaborated with her to introduce new features & report bugs. All credit goes to her hard work & selflessness!
 
 It also uses below resources for its functionalities & their respective authors deserve all the kudos & special thanks for their awesome products :-)
